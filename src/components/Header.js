@@ -17,7 +17,7 @@ function Header(props) {
                     </div>
 
                     <div className="text-dark">
-                        Hello Mr. Smith &nbps;&nbps;
+                        Hello Mr. Smith &nbsp;&nbsp;
                         <span>
                             <a href="#">sign-out</a>
                         </span>

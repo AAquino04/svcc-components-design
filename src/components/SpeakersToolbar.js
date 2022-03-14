@@ -1,27 +1,39 @@
+import { useState } from "react";
+
 function SpeakersToolbar() {
+
+    const [showSessions, setShowSessions] = useState(true);
+    const [theme, setTheme] = useState("light");
+
     return (
         <section className="toolbar dark-theme-header">
             <div className="container">
                 <div className="justify-content-between">
 
-                    <ul className="toolrow d-flex flex-column flex-lg-row">
-                        <li className="d-flex flex-column flex-md-row">
+                    <ul className="toolrow d-flex flex-column flex-lg-row flex-sm-row">
+                        <li className="d-flex flex-column flex-md-row flex-sm-row">
                             <strong className="d-flex align-items-center">Show Sessions&nbsp;&nbsp;</strong>
                             <label className="fav">
                                 <input
                                     type="checkbox"
-                                    checked={true}
+                                    checked={showSessions}
+                                    onChange={event => {
+                                        setShowSessions(event.target.checked);
+                                    }}
                                 />
                                 <span className="switch"></span>
                             </label>
                         </li>
 
-                        <li className="d-flex flex-column flex-md-row ml-sm-5 ml-0">
+                        <li className="d-flex flex-column flex-md-row flex-sm-row ml-sm-0 ml-0">
                             <strong className="d-flex align-items-center">Theme</strong>
                             <label className="dropdown">
                                 <select
                                     className="form-control theme"
-                                    value="light"
+                                    value={theme}
+                                    onChange={event => {
+                                        setTheme(event.target.value);
+                                    }}
                                 >
                                     <option value="light">Light</option>
                                     <option value="dark">Dark</option>
