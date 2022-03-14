@@ -1,8 +1,12 @@
 import Session from "./Session";
 
-function Sessions({ sessions }) {
+function Sessions({ sessions, theme }) {
     return (
-        <div className="sessionBox card h-250">
+        <div className={
+            theme === "light"
+                ? "sessionBox card h-250"
+                : "sessionBox card h-250 dark-theme-card"
+        }>
             <Session
                 title={sessions[0].title}
                 roomName={sessions[0].room.name}

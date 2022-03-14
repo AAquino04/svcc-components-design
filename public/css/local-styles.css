@@ -787,8 +787,9 @@ input:checked + .switch:before {
     background: #222222;
 }
 
-.dark .dark-theme-header {
-    background-color: #fafafa !important;
+.dark .dark-theme-header, .dark-theme-card {
+    background-color: #dadada !important;
+    border: none;
 }
 
 .dark .dark-theme-text {

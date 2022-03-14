@@ -1,4 +1,4 @@
-function Header(props) {
+function Header({ theme }) {
     return (
         <div className="padT4 padB4">
             <div className="container mobile-container">
@@ -10,13 +10,21 @@ function Header(props) {
                         />
                     </div>
 
-                    <div className="light">
+                    <div className={
+                        theme === "light"
+                            ? "text-dark"
+                            : "text-light"
+                    }>
                         <h4 className="header-title">
                             Silicon Valley Code Camp
                         </h4>
                     </div>
 
-                    <div className="text-dark">
+                    <div className={
+                        theme === "light"
+                            ? "text-dark"
+                            : "text-light"
+                    }>
                         Hello Mr. Smith &nbsp;&nbsp;
                         <span>
                             <a href="#">sign-out</a>
