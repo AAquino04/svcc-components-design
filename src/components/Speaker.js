@@ -2,7 +2,7 @@ import SpeakerImage from "./SpeakerImage";
 import SpeakerDemographics from "./SpeakerDemographics";
 import Sessions from "./Sessions";
 
-function Speaker({ speaker, theme }) {
+function Speaker({ speaker, theme, showSessions }) {
     const { id, first, last, sessions } = speaker;
 
     return (
@@ -19,7 +19,10 @@ function Speaker({ speaker, theme }) {
                 <SpeakerDemographics {...speaker} />
             </div>
 
-            <Sessions theme={theme} sessions={sessions} />
+            {showSessions === true
+                ? <Sessions theme={theme} sessions={sessions} />
+                : null
+            }
         </div>
     );
 }
