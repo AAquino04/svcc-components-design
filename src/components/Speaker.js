@@ -34,12 +34,29 @@ function SpeakerImage({ id, first, last }) {
     );
 }
 
+function SpeakerFavorite({ favorite }) {
+    return (
+        <div className="action padB1">
+            <span>
+                <i className={
+                    favorite === true
+                        ? "fa fa-star orange"
+                        : "fa fa-star-o orange"
+                }
+                /> {" "} Favorite {" "}
+            </span>
+        </div>
+    );
+}
+
 function SpeakerDemographics({ first, last, bio, company, twitterHandle, favorite }) {
     return (
         <div className="speaker-info">
             <div className="d-flex justify-content-between mb-3">
                 <h3 className="text-truncate w-200">{first} {last}</h3>
             </div>
+
+            <SpeakerFavorite favorite={favorite} />
 
             <div>
                 <p className="card-description">
