@@ -24,7 +24,7 @@ function useRequestDelay(delayTime = 1000, initialData = []) {
         }
     }, []); // Calls only on first render
 
-    function updateRecord(recordUpdated) {
+    function updateRecord(recordUpdated, doneCallback) {
         const newRecords = data.map(rec => {
             return rec.id === recordUpdated.id ? recordUpdated : rec;
         });
@@ -32,6 +32,9 @@ function useRequestDelay(delayTime = 1000, initialData = []) {
         async function delayFunction() {
             try {
                 await delay(delayTime);
+                if (doneCallback) {
+                    doneCallback();
+                }
                 setData(newRecords);
             } catch (error) {
                 console.log("ERROR thrown inside delay function", error);
@@ -40,8 +43,6 @@ function useRequestDelay(delayTime = 1000, initialData = []) {
 
         delayFunction();
     }
-
-
 
     return {
         data, requestStatus,
