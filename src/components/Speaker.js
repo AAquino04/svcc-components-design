@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { ThemeContext } from "./App";
+import { ThemeContext } from "./Layout";
 
 
 function Session({ title, roomName }) {
