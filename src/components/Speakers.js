@@ -9,12 +9,10 @@ function Speakers({ theme, setTheme }) {
     return (
         <>
             <SpeakersToolbar
-                theme={theme}
-                setTheme={setTheme}
                 showSessions={showSessions}
                 setShowSessions={setShowSessions}
             />
-            <SpeakersList theme={theme} showSessions={showSessions} />
+            <SpeakersList showSessions={showSessions} />
         </>
     );
 }

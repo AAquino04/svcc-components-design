@@ -5,7 +5,7 @@ import { data } from "../../SpeakerData";
 
 import Speaker from "./Speaker";
 
-function SpeakersList({ theme, showSessions }) {
+function SpeakersList({ showSessions }) {
     const {
         data: speakersData, requestStatus,
         error, updateRecord
@@ -34,7 +34,6 @@ function SpeakersList({ theme, showSessions }) {
                             <Speaker
                                 key={speaker.id}
                                 speaker={speaker}
-                                theme={theme}
                                 showSessions={showSessions}
                                 onFavoriteToggle={(doneCallback) => {
                                     updateRecord({ ...speaker, favorite: !speaker.favorite }, doneCallback);

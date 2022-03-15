@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "./App";
+
 
 function Session({ title, roomName }) {
     return (
@@ -8,7 +10,9 @@ function Session({ title, roomName }) {
     );
 }
 
-function Sessions({ sessions, theme }) {
+function Sessions({ sessions }) {
+    const { theme } = useContext(ThemeContext);
+
     return (
         <div className={
             theme === "light"
@@ -103,8 +107,9 @@ function SpeakerDemographics({
     );
 }
 
-function Speaker({ speaker, theme, showSessions, onFavoriteToggle }) {
+function Speaker({ speaker, showSessions, onFavoriteToggle }) {
     const { id, first, last, sessions } = speaker;
+    const { theme } = useContext(ThemeContext);
 
     return (
         <div
@@ -121,7 +126,7 @@ function Speaker({ speaker, theme, showSessions, onFavoriteToggle }) {
             </div>
 
             {showSessions === true
-                ? <Sessions theme={theme} sessions={sessions} />
+                ? <Sessions sessions={sessions} />
                 : null
             }
         </div>
