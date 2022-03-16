@@ -4,7 +4,12 @@ const SpeakerContext = createContext();
 
 function SpeakerProvider({ children, speaker, updateRecord }) {
     return (
-        <SpeakerContext.Provider value={{ speaker, updateRecord }}>
+        <SpeakerContext.Provider value={{
+            speaker,
+            updateRecord,
+            insertRecord,
+            deleteRecord
+        }}>
             {children}
         </SpeakerContext.Provider>
     );
