@@ -7,8 +7,7 @@ function SpeakersToolbar() {
     const {
         showSessions, setShowSessions,
         eventYear, setEventYear,
-        searchQuery, setSearchQuery,
-        EVENT_YEARS
+        setSearchQuery, EVENT_YEARS
     } = useContext(SpeakerFilterContext);
 
     return (
@@ -67,7 +66,7 @@ function SpeakersToolbar() {
                         </li>
 
                         <li className="d-flex flex-column flex-md-row flex-sm-row ml-sm-0 ml-0">
-                            <strong>eventYear</strong>
+                            <strong>Event Year</strong>
                             <label className="dropmenu">
                                 <select
                                     className="form-control"
