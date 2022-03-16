@@ -7,6 +7,7 @@ import { SpeakerFilterContext } from "../contexts/SpeakerFilterContext";
 import { data } from "../../SpeakerData";
 
 import Speaker from "./Speaker";
+import SpeakerAdd from "./SpeakerAdd";
 
 function SpeakersList() {
     const {
@@ -33,6 +34,7 @@ function SpeakersList() {
                 className="speakerslist-placeholder"
                 ready={requestStatus === REQUEST_STATUS.SUCCESS}
             >
+                <SpeakerAdd eventYear={eventYear} insertRecord={insertRecord} />
                 <div className="row">
                     {speakersData
                         .filter(speaker => {

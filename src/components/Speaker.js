@@ -3,6 +3,8 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import { SpeakerFilterContext } from "../contexts/SpeakerFilterContext";
 import { SpeakerProvider, SpeakerContext } from "../contexts/SpeakerContext";
 
+import SpeakerDelete from "./SpeakerDelete";
+
 function Session({ title, roomName }) {
     return (
         <span className="session w-100">
@@ -150,6 +152,8 @@ function Speaker({ speaker, updateRecord, insertRecord, deleteRecord }) {
                     ? <Sessions />
                     : null
                 }
+
+                <SpeakerDelete />
             </div>
         </SpeakerProvider>
     );
