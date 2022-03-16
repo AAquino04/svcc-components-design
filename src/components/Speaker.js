@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
-
+import { SpeakerFilterContext } from "../contexts/SpeakerFilterContext";
 
 function Session({ title, roomName }) {
     return (
@@ -107,9 +107,10 @@ function SpeakerDemographics({
     );
 }
 
-function Speaker({ speaker, showSessions, onFavoriteToggle }) {
+function Speaker({ speaker, onFavoriteToggle }) {
     const { id, first, last, sessions } = speaker;
     const { theme } = useContext(ThemeContext);
+    const { showSessions } = useContext(SpeakerFilterContext);
 
     return (
         <div
