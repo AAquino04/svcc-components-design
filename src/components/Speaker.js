@@ -12,6 +12,7 @@ function Session({ title, roomName }) {
 
 function Sessions({ sessions }) {
     const { theme } = useContext(ThemeContext);
+    const { eventYear } = useContext(SpeakerFilterContext);
 
     return (
         <div className={
@@ -19,10 +20,18 @@ function Sessions({ sessions }) {
                 ? "sessionBox card h-250"
                 : "sessionBox card h-250 dark-theme-card"
         }>
-            <Session
-                title={sessions[0].title}
-                roomName={sessions[0].room.name}
-            />
+            {sessions
+                .filter(session => {
+                    return session.eventYear === eventYear;
+                })
+                .map(session => {
+                    return (
+                        <div className="session w-100" key={session.id}>
+                            <Session {...session} />
+                        </div>
+                    );
+                })
+            }
         </div>
     );
 }
