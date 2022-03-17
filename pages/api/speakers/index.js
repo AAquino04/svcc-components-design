@@ -3,7 +3,7 @@ import fs from "fs";
 
 const { promisify } = require("util");
 const readFile = promisify(fs.readFile);
-const delay = (ms) => new Promise(resolve => { setTimeout(promise, ms) });
+const delay = (ms) => new Promise(resolve => { setTimeout(resolve, ms) });
 
 export default async function handler(req, res) {
     const jsonFile = path.resolve("./", "db.json");
