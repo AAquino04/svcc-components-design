@@ -15,10 +15,13 @@ export default async function handler(req, res) {
     switch (method) {
         case "POST":
             await postMethod();
+            break;
         case "PUT":
             await putMethod();
+            break;
         case "DELETE":
             await deleteMethod();
+            break;
         default:
             res.status(501).send(`Method ${method} not implemented`);
             console.log(`Method ${method} not implemented`);

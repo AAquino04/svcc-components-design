@@ -5,10 +5,10 @@ import { SpeakerProvider, SpeakerContext } from "../contexts/SpeakerContext";
 
 import SpeakerDelete from "./SpeakerDelete";
 
-function Session({ title, roomName }) {
+function Session({ title, room }) {
     return (
         <span className="session w-100">
-            {title} <strong>Room: {roomName}</strong>
+            {title} <strong>Room: {room.name}</strong>
         </span>
     );
 }
@@ -40,12 +40,26 @@ function Sessions() {
     );
 }
 
+function ImageWithFallback({ src, ...props }) {
+    const [error, setError] = useState(false);
+    const [imgScr, setImgScr] = useState(src);
+
+    function onError() {
+        if (!error) {
+            setImgScr("/images/speaker-99999.jpg");
+            setError(true);
+        }
+    }
+
+    return <img src={imgScr} {...props} onError={onError} />
+}
+
 function SpeakerImage() {
     const { speaker: { id, first, last } } = useContext(SpeakerContext);
 
     return (
         <div className="speaker-img d-flex flex-row justify-content-center align-items-center h-300">
-            <img
+            <ImageWithFallback
                 className="contain-fit"
                 src={`/images/speaker-${id}.jpg`}
                 width="300"
