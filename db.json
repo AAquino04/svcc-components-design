@@ -1,30 +1,17 @@
 {
   "speakers": [
     {
-      "id": "47345",
-      "first": "Test",
+      "id": "47344",
+      "first": "John",
+      "last": "Doe",
       "sessions": [
         {
           "id": "888888",
-          "title": "New Session For Test",
+          "title": "New Session For John",
           "room": {
             "name": "Main Ball Room"
           },
           "eventYear": "2011"
-        }
-      ]
-    },
-    {
-      "id": "47344",
-      "first": "Test",
-      "sessions": [
-        {
-          "id": "888888",
-          "title": "New Session For Test",
-          "room": {
-            "name": "Main Ball Room"
-          },
-          "eventYear": "2013"
         }
       ]
     },
